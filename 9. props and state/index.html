@@ -11,25 +11,19 @@
 	<div id="root"></div>
 
 <script type="text/babel">
-
-    function SecondpersonName(props){
-      return(
-        <div>
-          <h3>Your Last Name: {props.lastname}</h3>
-          <h4>Salary: {props.salary}</h4>
-        </div>  
-      )
+    
+    class FirstpersonName extends React.Component {
+      render(){
+        const props = this.props;
+        return (
+          <div>
+            <h1>Your First Name: {props.firtname}</h1>
+            <h3>Profession: {props.professtion}</h3>
+          </div>
+        )
+      }
     }
-
-    function FirstpersonName(props){
-      return(
-        <div>
-          <h1>Your First Name: {props.firtname}</h1>
-          <h2>Profession: {props.professtion}</h2>
-          <SecondpersonName lastname="Karim" salary="40k"/>
-        </div>
-      )
-    }
+    
 
 
     ReactDOM.render(
