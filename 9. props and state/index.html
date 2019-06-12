@@ -11,6 +11,15 @@
 	<div id="root"></div>
 
 <script type="text/babel">
+
+    function SecondpersoneName(props){
+      return(
+       <div> 
+          <h4>Your Last Name: {props.lastname}</h4>
+          <h5>Salary: {props.salary}</h5>
+       </div> 
+      )
+    }
     
     class FirstpersonName extends React.Component {
       render(){
@@ -19,6 +28,7 @@
           <div>
             <h1>Your First Name: {props.firtname}</h1>
             <h3>Profession: {props.professtion}</h3>
+            <SecondpersoneName lastname="Karim" salary="40k" />
           </div>
         )
       }
