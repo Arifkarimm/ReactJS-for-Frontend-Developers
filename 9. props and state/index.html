@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ReactJS for Frontend Developers</title>
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+
+<script type="text/babel">
+
+    function SecondpersonName(props){
+      return(
+        <div>
+          <h3>Your Last Name: {props.lastname}</h3>
+          <h4>Salary: {props.salary}</h4>
+        </div>  
+      )
+    }
+
+    function FirstpersonName(props){
+      return(
+        <div>
+          <h1>Your First Name: {props.firtname}</h1>
+          <h2>Profession: {props.professtion}</h2>
+          <SecondpersonName lastname="Karim" salary="40k"/>
+        </div>
+      )
+    }
+
+
+    ReactDOM.render(
+      <FirstpersonName firtname="Fazlul" professtion="Developer"/>,
+      document.getElementById("root")
+    );  
+  </script>
+	
+	
+</body>
+</html>
