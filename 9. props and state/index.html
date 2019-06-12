@@ -12,24 +12,32 @@
 
 <script type="text/babel">
 
-    function SecondpersoneName(props){
-      return(
-       <div> 
-          <h4>Your Last Name: {props.lastname}</h4>
-          <h5>Salary: {props.salary}</h5>
-       </div> 
-      )
-    }
     
     class FirstpersonName extends React.Component {
+
+      constructor(){
+        super();
+
+        this.state = {
+          message: "Hello I am from State"
+        }
+
+        this.updateMessage = this.updateMessage.bind(this);
+      }
+
+    updateMessage(){
+      this.setState({
+        message: "Hello i am from another State"
+      })
+    }
+
       render(){
-        const props = this.props;
         return (
           <div>
-            <h1>Your First Name: {props.firtname}</h1>
-            <h3>Profession: {props.professtion}</h3>
-            <SecondpersoneName lastname="Karim" salary="40k" />
+            <h1>{this.state.message}</h1>
+            <button type="button" onClick={this.updateMessage}>Click Me</button>
           </div>
+         
         )
       }
     }
@@ -37,7 +45,7 @@
 
 
     ReactDOM.render(
-      <FirstpersonName firtname="Fazlul" professtion="Developer"/>,
+      <FirstpersonName />,
       document.getElementById("root")
     );  
   </script>
