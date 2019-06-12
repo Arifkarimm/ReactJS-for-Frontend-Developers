@@ -12,35 +12,34 @@
 
 <script type="text/babel">
 
-    
-    class FirstpersonName extends React.Component {
+  class FirstpersonName extends React.Component {
+    constructor(){
+      super();
 
-      constructor(){
-        super();
-
-        this.state = {
-          message: "Hello I am from State"
-        }
-
-        this.updateMessage = this.updateMessage.bind(this);
+      this.state = {
+        initialValue: 0
       }
 
-    updateMessage(){
+      this.updateNumber = this.updateNumber.bind(this);
+
+    }
+
+    updateNumber(){
       this.setState({
-        message: "Hello i am from another State"
+        initialValue: this.state.initialValue + 1
       })
     }
 
-      render(){
-        return (
-          <div>
-            <h1>{this.state.message}</h1>
-            <button type="button" onClick={this.updateMessage}>Click Me</button>
-          </div>
-         
-        )
-      }
+    render(){
+      return (
+        <div>
+         <h1>{this.state.initialValue}</h1> 
+         <button type="button" onClick={this.updateNumber}>Click Me</button>
+        </div> 
+      )
     }
+  }
+ 
     
 
 
