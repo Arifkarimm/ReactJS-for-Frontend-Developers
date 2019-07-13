@@ -26,16 +26,15 @@ class App extends Component {
   render(){
     return(
       <div className="App">
-       {list.map(function(item){ 
-	       	return(
+       {list.map(item =>(
 	       		<div key={item.objectID} className="fetch-item-data">
 	       			<span><a href={item.title}>{item.title}</a></span>
 	       			<span>{item.author}</span>
 	       			<span>{item.num_commemts}</span>
 	       			<span>{item.points}</span>
 	       		</div>
-	       	);
-       })}
+	       	)
+       )}
       </div>
     )
   }
