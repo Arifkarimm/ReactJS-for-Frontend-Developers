@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Map Function</title>
+</head>
+<body>
+	<h2>JS Map Function Test</h2>
+
+	<script>
+		const arrNumber = [1,2,3,4,5,6];
+		//number sqr with for loop
+		const outputArr = [];
+		for(i=0; i < arrNumber.length; i++){
+			outputArr.push(arrNumber[i] * arrNumber[i])
+		}
+
+		console.log(outputArr);
+
+
+		//number sqr with map() 
+		const outputArr = arrNumber.map(function(item){
+				return item * item;
+		})
+
+		console.log(outputArr);
+
+
+		//map() argument test
+		const outputArr = arrNumber.map(function(item, index, fullarr){
+			return (
+				"Item Value " + item + " Index Value " + index + " Full Array " +fullarr
+			)
+		});
+
+		console.log(outputArr);
+
+
+
+
+		//map() this keyword handle
+		const newObj = {
+			name: "Frontend Devs",
+			age: 28
+		}
+
+		const outputArr = arrNumber.map(function(item, index, fullarr){
+			console.log(this);
+		}, newObj);
+
+		
+
+	</script>
+
+</body>
+</html>
