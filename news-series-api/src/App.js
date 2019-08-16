@@ -8,12 +8,12 @@ class App extends Component {
 	constructor(){
 		super();
 
-		
+		this.onClickMe = () => {
+			console.log(this);
+		}		
 	}
 
-	onClickMe = () => {
-		console.log(this);
-	}
+	
 
 	
 
