@@ -19,7 +19,7 @@ class App extends Component {
 
   render(){
     return(
-      <button type="button" onClick={this.onClickMe.bind(this)}>Click me</button>
+      <button type="button" onClick={() => this.onClickMe()}>Click me</button>
     )
   }
 }
