@@ -21,37 +21,51 @@ const list = [
 	},
 ];
 
+//ES5
+// function isSearched(searchTerm){
+// 	return function(item){
+// 		return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+// 	}
+// }
+
+//ES6
+const isSearched = searchTerm => item => 
+	item.title.toLowerCase().includes(searchTerm.toLowerCase());
+
 class App extends Component {
 
 	constructor(props){
 		super(props);
 
 		this.state = {
-			list
+			list,
+			searchTerm:'',
 		}
 
 		this.onDismiss = this.onDismiss.bind(this);
+		this.onSearchChange = this.onSearchChange.bind(this);
+		
 	}
 
+	onSearchChange(event){
+		this.setState({
+			searchTerm: event.target.value
+		});
+	}
 	onDismiss(id){
-		// function isNotid(item){
-		// 	return item.objectID !== id;
-		// }
-
 		const isNotid = item => item.objectID !== id;
-		
-
 		const updateList = this.state.list.filter(isNotid);
-
-		// const updateList = this.state.list.filter(item => item.objectID !== id);
-
 		this.setState({ list: updateList })
 	}
 
-  render(){
+render(){
+	console.log(this.state.searchTerm);
     return(
       <div className="App">
-       {this.state.list.map(item =>(
+      		<form>
+      			<input type="text" placeholder="please search here" onChange={this.onSearchChange}/>
+      		</form>
+       {this.state.list.filter(isSearched(this.state.searchTerm)).map(item =>(
 	       		<div key={item.objectID} className="fetch-item-data">
 	       			<span><a href={item.title}>{item.title}</a></span>
 	       			<span>{item.author}</span>
