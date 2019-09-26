@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS ES6 Destructuring Test</title>
+</head>
+<body>
+	<h2>JS ES6 Destructuring Test</h2>
+
+ 	<script>
+
+ 		//ES5 way
+ 		const users = {
+ 			firstName: 'Fazlul',
+ 			lastName: 'Karimm'
+ 		}
+
+ 		console.log(users.firstName + ' ' + users.lastName);
+
+
+
+
+ 		//ES6 way
+ 		 const { 
+ 			firstName, 
+ 			lastName 
+ 		} = users;
+
+ 		console.log(firstName + ' ' + lastName);
+
+
+
+
+ 		//Array
+ 		const users = ['Fazlul', 'Karim', 'Arif'];
+
+ 		const [
+	 		userOne, 
+	 		userTwo, 
+	 		userThree
+ 		] = users;
+
+ 		console.log(userOne, userTwo, userThree);
+
+ 	</script>
+</body>
+</html>

@@ -59,13 +59,13 @@ class App extends Component {
 	}
 
 render(){
-	console.log(this.state.searchTerm);
+	const { list, searchTerm } = this.state;
     return(
       <div className="App">
       		<form>
       			<input type="text" placeholder="please search here" onChange={this.onSearchChange}/>
       		</form>
-       {this.state.list.filter(isSearched(this.state.searchTerm)).map(item =>(
+       {list.filter(isSearched(searchTerm)).map(item =>(
 	       		<div key={item.objectID} className="fetch-item-data">
 	       			<span><a href={item.title}>{item.title}</a></span>
 	       			<span>{item.author}</span>
