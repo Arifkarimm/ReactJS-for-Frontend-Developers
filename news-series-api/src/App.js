@@ -62,25 +62,65 @@ render(){
 	const { list, searchTerm } = this.state;
     return(
       <div className="App">
-      		<form>
-      			<input type="text" placeholder="please search here" onChange={this.onSearchChange}/>
+      		<Search 
+      			value={searchTerm} 
+      			onChange={this.onSearchChange} 
+      		/>
+
+      		<Table 
+      			list={list} 
+      			pattern={searchTerm} 
+      			onDismiss={this.onDismiss} 
+      		/>
+      
+      </div>
+    )
+  }
+}
+
+
+
+class Search extends Component{
+	render(){
+		const { value, onChange } = this.props;
+		return(
+			<form>
+      			<input 
+      				type="text" 
+      				value={value} 
+      				placeholder="please search here" 
+      				onChange={onChange}
+      			/>
       		</form>
-       {list.filter(isSearched(searchTerm)).map(item =>(
+		)
+	}
+}
+
+
+class Table extends Component{
+	render(){
+		const { list, pattern, onDismiss } = this.props;
+		return(
+			<div>
+			 {list.filter(isSearched(pattern)).map(item =>(
 	       		<div key={item.objectID} className="fetch-item-data">
 	       			<span><a href={item.title}>{item.title}</a></span>
 	       			<span>{item.author}</span>
 	       			<span>{item.num_commemts}</span>
 	       			<span>{item.points}</span>
 	       			<span>
-	       				<button type="button" onClick={() => this.onDismiss(item.objectID)}>Dismiss</button>
+	       				<button 
+	       					type="button" 
+	       					onClick={() => onDismiss(item.objectID)}>
+	       					Dismiss
+	       				</button>
 	       			</span>
 	       		</div>
-	       	)
-       )}
-      </div>
-    )
-  }
+	       		)
+       		)}
+			</div>
+		)
+	}
 }
-
 
 export default App;
