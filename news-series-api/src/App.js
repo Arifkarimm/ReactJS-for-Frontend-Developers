@@ -21,7 +21,6 @@ const list = [
   }
 ];
 
-//ES6
 const isSearched = searchTerm => item =>
   item.title.toLowerCase().includes(searchTerm.toLowerCase());
 
@@ -62,44 +61,7 @@ class App extends Component {
   }
 }
 
-// class Search extends Component {
-//   render() {
-//     const { value, onChange, children } = this.props;
-//     return (
-//       <form>
-//         {children}
-//         <input
-//           type="text"
-//           value={value}
-//           placeholder="please search here"
-//           onChange={onChange}
-//         />
-//       </form>
-//     );
-//   }
-// }
-
-//ES5
-// function Search({ value, onChange, children }) {
-
-//   //Logic should be write here
-//   // const { value, onChange, children } = props;
-//   return (
-//     <form>
-//       {children}
-//       <input
-//         type="text"
-//         value={value}
-//         placeholder="please search here"
-//         onChange={onChange}
-//       />
-//     </form>
-//   );
-// }
-
-//ES6
 const Search = ({ value, onChange, children }) => {
-  // const { value, onChange, children } = props;
   return (
     <form>
       {children}
@@ -113,38 +75,32 @@ const Search = ({ value, onChange, children }) => {
   );
 };
 
-class Table extends Component {
-  render() {
-    const { list, pattern, onDismiss } = this.props;
-    return (
-      <div>
-        {list.filter(isSearched(pattern)).map(item => (
-          <div key={item.objectID} className="fetch-item-data">
-            <span>
-              <a href={item.title}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_commemts}</span>
-            <span>{item.points}</span>
-            <span>
-              <Button onClick={() => onDismiss(item.objectID)}>Dismiss</Button>
-            </span>
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
+const Table = ({ list, pattern, onDismiss }) => {
+  return (
+    <div>
+      {list.filter(isSearched(pattern)).map(item => (
+        <div key={item.objectID} className="fetch-item-data">
+          <span>
+            <a href={item.title}>{item.title}</a>
+          </span>
+          <span>{item.author}</span>
+          <span>{item.num_commemts}</span>
+          <span>{item.points}</span>
+          <span>
+            <Button onClick={() => onDismiss(item.objectID)}>Dismiss</Button>
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-class Button extends Component {
-  render() {
-    const { onClick, children, className = 'btn-primary' } = this.props;
-    return (
-      <button type="button" onClick={onClick} className={className}>
-        {children}
-      </button>
-    );
-  }
-}
+const Button = ({ onClick, children, className = 'btn-primary' }) => {
+  return (
+    <button type="button" onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
+};
 
 export default App;
