@@ -62,22 +62,56 @@ class App extends Component {
   }
 }
 
-class Search extends Component {
-  render() {
-    const { value, onChange, children } = this.props;
-    return (
-      <form>
-        {children}
-        <input
-          type="text"
-          value={value}
-          placeholder="please search here"
-          onChange={onChange}
-        />
-      </form>
-    );
-  }
-}
+// class Search extends Component {
+//   render() {
+//     const { value, onChange, children } = this.props;
+//     return (
+//       <form>
+//         {children}
+//         <input
+//           type="text"
+//           value={value}
+//           placeholder="please search here"
+//           onChange={onChange}
+//         />
+//       </form>
+//     );
+//   }
+// }
+
+//ES5
+// function Search({ value, onChange, children }) {
+
+//   //Logic should be write here
+//   // const { value, onChange, children } = props;
+//   return (
+//     <form>
+//       {children}
+//       <input
+//         type="text"
+//         value={value}
+//         placeholder="please search here"
+//         onChange={onChange}
+//       />
+//     </form>
+//   );
+// }
+
+//ES6
+const Search = ({ value, onChange, children }) => {
+  // const { value, onChange, children } = props;
+  return (
+    <form>
+      {children}
+      <input
+        type="text"
+        value={value}
+        placeholder="please search here"
+        onChange={onChange}
+      />
+    </form>
+  );
+};
 
 class Table extends Component {
   render() {
